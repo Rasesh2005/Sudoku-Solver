@@ -1,4 +1,10 @@
 def isSolved(mat):
+    '''
+    A function to check ifthe board is solved.
+
+    It can just be checked by checking 
+    if zeroes are there in the board or not.
+    '''
     for row in mat:
         for i in row:
             if i == 0:
@@ -7,13 +13,20 @@ def isSolved(mat):
 
 
 def isValid(mat, row, col, n):
-    
+    '''
+    To Check if a number can be witten(temporarily) safely
+    in a particular cell at {row}th row and {col}th column
+    '''
+    # Checking row
     if n in mat[row]:
         return False
+
+    # checking column
     for r in mat:
         if n == r[col]:
             return False
-    # Checking for boxes left
+
+    # Checking for box in which the number is placed
     r = row//3
     c = col//3
     rs = r*3
@@ -26,6 +39,10 @@ def isValid(mat, row, col, n):
 
 
 def findEmpty(mat):
+    '''
+    A function to find next empty cell in sudoku board 
+    by traversing linearly and checking for 0
+    '''
     for rowIndex, rowItem in enumerate(mat):
         for colIndex, colItem in enumerate(rowItem):
             if colItem == 0:
@@ -33,7 +50,10 @@ def findEmpty(mat):
     return False
 
 
-def printBoard(mat):
+def prettyPrint(mat):
+    '''
+    for decorative printing of sudoku board
+    '''
     print("-"*19)
     for rowIndex, rowItem in enumerate(mat):
         row = list(str(rowItem).replace(
@@ -45,6 +65,10 @@ def printBoard(mat):
 
 
 def solveBoard(mat):
+    '''
+    A function for implementing backtracking algorithm 
+    for solving the sudoku board.
+    '''
     emptySpace=findEmpty(mat)
     if not emptySpace:
         return True
@@ -58,6 +82,9 @@ def solveBoard(mat):
     return False
 
 def inputBoard(board=[]):
+    '''
+    Function to take the sudoku board as input
+    '''
     while (n:=len(board))<9:
         row=input(f"Enter Row {n+1} Elements seperated by either comma or single space: ")
         if ',' in row:

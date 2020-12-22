@@ -1,4 +1,4 @@
-from functions import printBoard, solveBoard
+from functions import prettyPrint, solveBoard
 board = [
     [3, 2, 0, 9, 0, 0, 8, 0, 6],
     [4, 0, 1, 2, 3, 0, 0, 5, 0],
@@ -30,9 +30,9 @@ Invalid Test Case for Testing:
 
 
 if __name__ == "__main__":
-    printBoard(board)
+    prettyPrint(board)
     print("\n\nTrying to solve the Sudoku Board\n\n")
     if solveBoard(board):
-        printBoard(board)
+        prettyPrint(board)
     else:
         print("The Sudoku Puzzle Cannot be solved")

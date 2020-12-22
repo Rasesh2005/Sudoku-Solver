@@ -1,4 +1,4 @@
-from functions import printBoard, solveBoard, inputBoard
+from functions import prettyPrint, solveBoard, inputBoard
 
 
 
@@ -6,9 +6,9 @@ from functions import printBoard, solveBoard, inputBoard
 if __name__ == "__main__":
     board=inputBoard()
     print(board)
-    printBoard(board)
+    prettyPrint(board)
     print("\n\nTrying to solve the Sudoku Board\n\n")
     if solveBoard(board):
-        printBoard(board)
+        prettyPrint(board)
     else:
         print("The Sudoku Puzzle Cannot be solved")
